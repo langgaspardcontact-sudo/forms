@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription — Week-end Océanique · Noirmoutier</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Source Sans 3', -apple-system, sans-serif;
+      background: #f5f0e8;
+      color: #1e3a4a;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background: #fff;
+      max-width: 560px;
+      width: 100%;
+      border-radius: 8px;
+      padding: 44px 38px;
+      box-shadow: 0 2px 24px rgba(30,58,74,0.08);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 34px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      color: #1e3a4a;
+    }
+    .sub {
+      color: #6b8a92;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .info-bar {
+      background: #f0ebe3;
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .info-bar strong {
+      color: #1e3a4a;
+    }
+    .info-bar .tel {
+      display: block;
+      margin-top: 6px;
+      color: #2b6b6e;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e0d8cc;
+      margin: 24px 0;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #1e3a4a;
+      margin-bottom: 6px;
+      margin-top: 20px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d4c8b8;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 15px;
+      color: #1e3a4a;
+      background: #faf8f5;
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #2b6b6e;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .checkbox-group {
+      margin-top: 16px;
+    }
+    .checkbox-group label {
+      font-weight: 400;
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .checkbox-group input[type="checkbox"],
+    .checkbox-group input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex: 0 0 18px;
+    }
+    .engagement {
+      background: #f8f4ee;
+      border-left: 3px solid #c8aa6e;
+      padding: 16px 18px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+    .engagement label {
+      margin-top: 0;
+      font-weight: 500;
+    }
+    .payment-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .payment-options label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 400;
+      font-size: 13px;
+      padding: 10px;
+      border: 1px solid #d4c8b8;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 0;
+    }
+    .payment-options input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+    }
+    button {
+      margin-top: 28px;
+      width: 100%;
+      padding: 17px;
+      background: #2b6b6e;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #1e4a4e; }
+    .small {
+      font-size: 12px;
+      color: #8a9aa0;
+      text-align: center;
+      margin-top: 18px;
+    }
+    .success {
+      display: none;
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .success h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      color: #2b6b6e;
+      margin-bottom: 12px;
+    }
+    .success p { color: #5a7a8a; }
+    @media (max-width: 520px) {
+      .card { padding: 28px 20px; }
+      .row-2 { grid-template-columns: 1fr; }
+      .payment-options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="form-card">
+    <h1>Week-end Océanique</h1>
+    <p class="sub">Noirmoutier · 25–27 septembre 2026</p>
+    <div class="info-bar">
+      <strong>Vendredi 25 septembre, 18h → dimanche 27 septembre, 18h</strong><br>
+      Hébergement partagé en Lodge de 4 personnes face à l'Océan<br>
+      <span class="tel">📞 Laurence : 06 60 88 28 35 &nbsp;|&nbsp; Martine : 06 80 17 67 89</span>
+    </div>
+
+    <form id="form" action="https://formspree.io/f/maqrbyby" method="POST">
+      <div class="row-2">
+        <div>
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <div>
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" name="nom" required>
+        </div>
+      </div>
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telephone">Téléphone</label>
+      <input type="tel" id="telephone" name="telephone">
+
+      <label for="annees">Nombre d'années de yoga</label>
+      <select id="annees" name="annees-yoga">
+        <option value="">— Sélectionnez —</option>
+        <option value="debutant">Débutant / Moins d'1 an</option>
+        <option value="1-3">1 à 3 ans</option>
+        <option value="3-5">3 à 5 ans</option>
+        <option value="5-10">5 à 10 ans</option>
+        <option value="10+">Plus de 10 ans</option>
+      </select>
+
+      <label for="regime">Régime alimentaire particulier</label>
+      <textarea id="regime" name="regime" placeholder="Végétarien, sans gluten, allergies, etc."></textarea>
+
+      <label>Nombre de personnes</label>
+      <select name="personnes">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+
+      <hr>
+
+      <div class="engagement">
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" name="engagement-arrhes" value="oui" required>
+            <span><strong>Je m'engage à verser des arrhes de 120€</strong> pour confirmer mon inscription. Ce montant sera déduit du solde total (300€ plein tarif / 275€ tarif préférentiel).</span>
+          </label>
+        </div>
+
+        <label style="margin-top:16px;">Mode de paiement des arrhes</label>
+        <div class="payment-options">
+          <label>
+            <input type="radio" name="paiement" value="wero" required>
+            Wero
+          </label>
+          <label>
+            <input type="radio" name="paiement" value="cheque">
+            Chèque
+          </label>
+          <label>
+            <input type="radio" name="paiement" value="cours">
+            Paiement au cours
+          </label>
+        </div>
+      </div>
+
+      <button type="submit">Je réserve ma place</button>
+      <p class="small">Votre demande sera confirmée dès réception des arrhes. Laurence vous répond sous 24h.</p>
+    </form>
+
+    <div class="success" id="success" style="display:none;">
+      <h2>Merci !</h2>
+      <p>Votre demande d'inscription a bien été envoyée.<br>
+      Laurence vous recontactera pour finaliser votre réservation.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var data = new FormData(form);
+      fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+          if (res.ok) {
+            document.querySelector('.card').innerHTML = document.getElementById('success').outerHTML;
+          }
+        })
+        .catch(function() { form.submit(); });
+    });
+  </script>
+</body>
+</html>
