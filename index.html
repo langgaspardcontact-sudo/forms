@@ -247,17 +247,20 @@
         <label style="margin-top:16px;">Mode de paiement des arrhes</label>
         <div class="payment-options">
           <label>
-            <input type="radio" name="paiement" value="wero" required>
+            <input type="radio" name="paiement" value="wero" required onchange="document.getElementById('wero-info').style.display='block'">
             Wero
           </label>
           <label>
-            <input type="radio" name="paiement" value="cheque">
+            <input type="radio" name="paiement" value="cheque" onchange="document.getElementById('wero-info').style.display='none'">
             Chèque
           </label>
           <label>
-            <input type="radio" name="paiement" value="cours">
+            <input type="radio" name="paiement" value="cours" onchange="document.getElementById('wero-info').style.display='none'">
             Paiement au cours
           </label>
+        </div>
+        <div id="wero-info" style="display:none;margin-top:12px;padding:12px 14px;background:#f0ebe3;border-radius:4px;font-size:14px;color:#1e3a4a;">
+          Envoyez vos arrhes par Wero au <strong>06 60 88 28 35</strong> (Laurence Razel)
         </div>
       </div>
 
