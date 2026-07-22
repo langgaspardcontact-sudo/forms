@@ -195,7 +195,6 @@
     </div>
 
     <form id="form" action="https://formspree.io/f/maqrbyby" method="POST">
-      <input type="hidden" name="_redirect" value="https://forms-one-sand.vercel.app/merci" />
       <input type="hidden" name="_subject" value="Nouvelle inscription - Week-end Océanique" />
       <div class="row-2">
         <div>
@@ -272,6 +271,22 @@
       Laurence vous recontactera pour finaliser votre réservation.</p>
     </div>
   </form>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var data = new FormData(form);
+      fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+          if (res.ok) {
+            window.location.href = 'https://forms-one-sand.vercel.app/merci';
+          }
+        })
+        .catch(function() { window.location.href = 'https://forms-one-sand.vercel.app/merci'; });
+    });
+  </script>
   </div>
 </body>
 </html>
